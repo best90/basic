@@ -1,208 +1,196 @@
-Yii 2 Basic Project Template
+Yii 2 Note
 ============================
+#### Yii初始化
+```
+init
+```
+选择相关环境
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+#### 数据库查询相关操作
+```
+User::find()->all();    此方法返回所有数据；
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
+User::findOne($id);   此方法返回 主键 id=1  的一条数据(举个例子)； 
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+User::find()->where(['name' => '小伙儿'])->one();   此方法返回 ['name' => '小伙儿'] 的一条数据；
 
-DIRECTORY STRUCTURE
--------------------
+User::find()->where(['name' => '小伙儿'])->all();   此方法返回 ['name' => '小伙儿'] 的所有数据；
 
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
+User::find()->orderBy('id DESC')->all();   此方法是排序查询；
 
+User::findBySql('SELECT * FROM user')->all();  此方法是用 sql  语句查询 user 表里面的所有数据；
 
+User::findBySql('SELECT * FROM user')->one();  此方法是用 sql  语句查询 user 表里面的一条数据；
 
-REQUIREMENTS
-------------
+User::find()->andWhere(['sex' => '男', 'age' => '24'])->count('id');   统计符合条件的总条数；
 
-The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+User::find()->andFilterWhere(['like', 'name', '小伙儿']); 此方法是用 like 查询 name 等于 小伙儿的 数据
 
+User::find()->one();    此方法返回一条数据；
 
-INSTALLATION
-------------
+User::find()->all();    此方法返回所有数据；
 
-### Install via Composer
+User::find()->count();    此方法返回记录的数量；
 
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+User::find()->average();    此方法返回指定列的平均值；
 
-You can then install this project template using the following command:
+User::find()->min();    此方法返回指定列的最小值 ；
 
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:^1.3.1"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
+User::find()->max();    此方法返回指定列的最大值 ；
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
+User::find()->scalar();    此方法返回值的第一行第一列的查询结果；
 
-~~~
-http://localhost/basic/web/
-~~~
+User::find()->column();    此方法返回查询结果中的第一列的值；
+
+User::find()->exists();    此方法返回一个值指示是否包含查询结果的数据行；
+
+User::find()->batch(10);  每次取 10 条数据 
+
+User::find()->each(10);  每次取 10 条数据， 迭代查询
+
+Customer::find()->asArray()->one();    以数组形式返回一条数据；
+
+Customer::find()->asArray()->all();    以数组形式返回所有数据；
+
+Customer::find()->where($condition)->asArray()->one();    根据条件以数组形式返回一条数据；
+
+Customer::find()->where($condition)->asArray()->all();    根据条件以数组形式返回所有数据；
 
 
-### Install from an Archive File
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
-
-Set cookie validation key in `config/web.php` file to some random secret string:
-
-```php
-'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
-],
 ```
 
-You can then access the application through the following URL:
+#### 数据库更新相关操作
+```
+//update();
+//runValidation boolen 是否通过validate()校验字段 默认为true 
+//attributeNames array 需要更新的字段 
 
-~~~
-http://localhost/basic/web/
-~~~
+$model->update($runValidation , $attributeNames);  
 
+//updateAll();
+//update customer set status = 1 where status = 2
 
-CONFIGURATION
--------------
+Customer::updateAll(['status' => 1], 'status = 2'); 
 
-### Database
+//update customer set status = 1 where status = 2 and uid = 1;
 
-Edit the file `config/db.php` with real data, for example:
-
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
+Customer::updateAll(['status' => 1], ['status'=> '2','uid'=>'1']);
 ```
 
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
+#### 数据库删除相关操作
+```
+$model = Customer::findOne($id);
+$model->delete();
 
-
-
-TESTING
--------
-
-Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](http://codeception.com/).
-By default there are 3 test suites:
-
-- `unit`
-- `functional`
-- `acceptance`
-
-Tests can be executed by running
+$model->deleteAll(['id'=>1]);
 
 ```
-vendor/bin/codecept run
-``` 
 
-The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
-tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
-they perform testing in real browser. 
-
-
-### Running  acceptance tests
-
-To execute acceptance tests do the following:  
-
-1. Rename `tests/acceptance.suite.yml.example` to `tests/acceptance.suite.yml` to enable suite configuration
-
-2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
-   version of Codeception
-
-3. Update dependencies with Composer 
-
-    ```
-    composer update  
-    ```
-
-4. Download [Selenium Server](http://www.seleniumhq.org/download/) and launch it:
-
-    ```
-    java -jar ~/selenium-server-standalone-x.xx.x.jar
-    ```
-
-    In case of using Selenium Server 3.0 with Firefox browser since v48 or Google Chrome since v53 you must download [GeckoDriver](https://github.com/mozilla/geckodriver/releases) or [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) and launch Selenium with it:
-
-    ```
-    # for Firefox
-    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
-    
-    # for Google Chrome
-    java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
-    ``` 
-    
-    As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
-    
-    ```
-    docker run --net=host selenium/standalone-firefox:2.53.0
-    ```
-
-5. (Optional) Create `yii2_basic_tests` database and update it by applying migrations if you have them.
-
-   ```
-   tests/bin/yii migrate
-   ```
-
-   The database configuration can be found at `config/test_db.php`.
-
-
-6. Start web server:
-
-    ```
-    tests/bin/yii serve
-    ```
-
-7. Now you can run all available tests
-
-   ```
-   # run all available tests
-   vendor/bin/codecept run
-
-   # run acceptance tests
-   vendor/bin/codecept run acceptance
-
-   # run only unit and functional tests
-   vendor/bin/codecept run unit,functional
-   ```
-
-### Code coverage support
-
-By default, code coverage is disabled in `codeception.yml` configuration file, you should uncomment needed rows to be able
-to collect code coverage. You can run your tests and collect coverage with the following command:
-
+#### 数据库批量插入
 ```
-#collect coverage for all tests
-vendor/bin/codecept run -- --coverage-html --coverage-xml
-
-#collect coverage only for unit tests
-vendor/bin/codecept run unit -- --coverage-html --coverage-xml
-
-#collect coverage for unit and functional tests
-vendor/bin/codecept run functional,unit -- --coverage-html --coverage-xml
+Yii::$app->db->createCommand()->batchInsert(UserModel::tableName(), ['user_id','username'], [
+    ['1','test1'],
+    ['2','test2'],
+    ['3','test3'],   
+])->execute();
 ```
 
-You can see code coverage output under the `tests/_output` directory.
+#### 查看执行SQL
+```
+//UserModel 
+$query = UserModel::find()->where(['status'=>1]); 
+echo $query->createCommand()->getRawSql();
+```
+
+#### 视图变量
+ * HTML转义
+```
+<?php use yii\helpers\Html; ?>
+
+<div class="index-div">
+   <h1><?= Html::encode($this->title) ?></h1>
+</div>
+```
+ * 视图渲染
+```
+render() − 渲染一个视图，并应用布局
+renderFile() − 在一个给定的文件路径或别名来渲染视图
+renderAjax() − 渲染视图但不使用布局，但所有的注入JS和CSS文件
+renderPartial() − 渲染视图，但不使用布局
+renderContent() − 渲染一个静态字符串并应用布局
+
+----------------------------------
+
+// 控制器中赋值变量
+public function actionIndex()  
+{  
+    $params = array('title'=>'here is index');
+    return $this->render('index', $params);  
+}  
+```
+
+#### Url生成
+* URL管理器
+```
+// URL：/index.php?r=article/view
+\Yii::$app->urlManager->createUrl('article/view');
+
+// URL：/index.php?r=article/view&id=2
+\Yii::$app->urlManager->createUrl(['article/view','id'=>2]);
+
+// URL： http://www.example.com?r=kernel/article/view
+echo \Yii::$app->urlManager->createAbsoluteUrl('kernel/article/view');
+
+```
+
+* URL 助手类
+```
+// 创建当前 URL
+// 显示：/?r=kernel/article/view&id=10
+echo Url::to();
+
+// 创建当前 URL
+// 显示：http://www.example.com/?r=kernel/article/view&id=10
+echo Url::to('', true);
+
+// 字符参数，没啥用
+// 显示：kernel/article/view
+echo Url::to('kernel/article/view');
+
+// 创建路由，数组参数的自动调用 Url::toRoute(...)
+// 显示：/index.php?r=kernel/article/view
+echo Url::to(['article/view']);
+
+--------------------------------------------
+
+// 创建当前路由（仅继承参数r的值）
+// 显示：/index.php?r=kernel/article/view
+echo Url::toRoute([]);
+
+// 相同的模块和控制器，不同的动作（仅继承参数r的值）
+// 显示：/index.php?r=kernel/article/list
+echo Url::toRoute('list');
+
+// 相同的模块和控制器，不同的动作（仅继承参数r的值）
+// 显示：/index.php?r=kernel/article/list&cat=contact
+echo Url::toRoute(['list','cat'=>10]);
+
+// 相同模块，不同控制器和动作（仅继承参数r的值）
+// 显示：/index.php?r=kernel/product/index
+echo Url::toRoute('product/index');
+
+// 绝对路由，不管是被哪个模块和控制器调用
+// 显示：/index.php?r=product/index
+echo Url::toRoute('/product/index');
+
+// 控制器动作 `actionListHot` 的 URL 格式（仅继承参数r的值，区分大小写）
+// 显示：/index.php?r=kernel/article/list-hot
+echo Url::toRoute('list-hot');
+
+// 从别名中获取 URL 
+// 显示：http://www.baidu.com/
+Yii::setAlias('@baidu', 'http://www.baidu.com/');
+echo Url::to('@baidu');
+
+```
