@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Supplier;
+use app\models\SupplierForm;
 use Yii;
 use app\models\SupplierSearch;
 use yii\filters\AccessControl;
@@ -11,6 +12,7 @@ use yii\filters\VerbFilter;
 
 class SupplierController extends Controller
 {
+
     /**
      * @inheritdoc
      */
@@ -79,7 +81,21 @@ class SupplierController extends Controller
 
     public function actionUpdate($id)
     {
-        $model = new Supplier();
+        if (Yii::$app->request->isPost){
+            $info = new SupplierForm();
+            $info->load(Yii::$app->request->post());
+            if ($info->validate()){
+             //   print_r(Yii::$app->request->bodyParams);
+                echo  'OK';
+            }else{
+                print_r($info->getErrors());
+            }
+        }else{
+            return $this->render('update', [
+                'title' => '供应商详情',
+                'supplier' => (new Supplier)->getSupplier($id)
+            ]);
+        }
     }
 
     public function actionDelete($id)

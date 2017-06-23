@@ -51,7 +51,7 @@ class Supplier extends ActiveRecord
 
     public function updateSupplier($id, $data)
     {
-        
+
     }
 
     public function deleteSupplier($id)
