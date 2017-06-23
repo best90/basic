@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Supplier;
 use Yii;
 use app\models\SupplierSearch;
 use yii\filters\AccessControl;
@@ -68,8 +69,27 @@ class SupplierController extends Controller
         ]);
     }
 
-    public function actionDelete()
+    public function actionView($id)
     {
+        return $this->render('view', [
+            'title' => '供应商详情',
+            'supplier' => (new Supplier)->getSupplier($id)
+        ]);
+    }
 
+    public function actionUpdate($id)
+    {
+        $model = new Supplier();
+    }
+
+    public function actionDelete($id)
+    {
+        $model = new Supplier();
+        if($model->deleteSupplier($id)){
+            Yii::$app->getSession()->setFlash('success','删除成功！');
+        }else{
+            Yii::$app->getSession()->setFlash('success','删除失败,请重试！');
+        }
+        return $this->redirect(Yii::$app->request->getReferrer());
     }
 }

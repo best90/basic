@@ -1,7 +1,5 @@
 <?php
 use yii\grid\GridView;
-use yii\helpers\Html;
-use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = $title;
@@ -66,13 +64,9 @@ $this->title = $title;
                     'label' => '地区（省）',
                 ],
                 [
+                    'header' => '操作',
                     'class' => 'yii\grid\ActionColumn',
-                    'template' => '{view} {update} {images} {delete}',
-                    'buttons' => [
-                        'images' => function ($url, $model, $key) {
-                            return Html::a('<span class="glyphicon glyphicon glyphicon-picture" aria-label="Image"></span>', Url::to(['supplier/delete', 'id' => $model->supplier_id]));
-                        }
-                    ],
+                    'template' => '{view} {update} {delete}',
                 ],
             ],
         ]); ?>

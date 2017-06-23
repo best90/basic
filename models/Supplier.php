@@ -41,4 +41,27 @@ class Supplier extends ActiveRecord
             'area_name' => '地区（省）'
         ];
     }
+
+    public function getSupplier($id)
+    {
+        return static::findOne([
+            'supplier_id' => $id
+        ]);
+    }
+
+    public function updateSupplier($id, $data)
+    {
+        
+    }
+
+    public function deleteSupplier($id)
+    {
+        $supplier = static::findOne([
+            'supplier_id' => $id
+        ]);
+        if($supplier->delete()){
+            return true;
+        }
+        return false;
+    }
 }
