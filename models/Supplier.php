@@ -8,6 +8,7 @@
 
 namespace app\models;
 
+use yii\base\Model;
 use yii\db\ActiveRecord;
 
 class Supplier extends ActiveRecord
@@ -22,6 +23,11 @@ class Supplier extends ActiveRecord
         return [
             [['supplier_id','company_name','main_services','certification_time','reg_capital','area_name'],'safe']
         ];
+    }
+
+    public function scenarios()
+    {
+        return Model::scenarios();
     }
 
     public function attributeLables()
