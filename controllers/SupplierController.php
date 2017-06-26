@@ -84,7 +84,6 @@ class SupplierController extends Controller
         if (Yii::$app->request->isPost){
             $info = new SupplierForm();
             $info->load(Yii::$app->request->post());
-            print_r(Yii::$app->request->post());
             if ($info->validate()){
                 if ($id == Yii::$app->request->post()['Supplier']['supplier_id']){
                     $model = new Supplier();
@@ -96,8 +95,7 @@ class SupplierController extends Controller
                     print_r('请求参数错误！');
                 }
             }else{
-                $errors = $info->errors;
-                print_r($errors);
+                print_r($info->errors);
             }
         }else{
             return $this->render('update', [
