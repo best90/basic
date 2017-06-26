@@ -51,7 +51,11 @@ class Supplier extends ActiveRecord
 
     public function updateSupplier($id, $data)
     {
-
+        $supplier = static::getSupplier($id);
+        foreach ($data as $key => $value){
+            $supplier->$key = $value;
+        }
+        return $supplier->save();
     }
 
     public function deleteSupplier($id)
