@@ -208,3 +208,15 @@ echo Url::to('@baidu');
 提交按钮:submitButton();
 重置按钮:resetButtun(); 
 ```
+
+#### URL优化
+```
+'urlManager' => [
+    'enablePrettyUrl' => true,
+    'showScriptName' => false,
+    'rules' => [
+        '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+        '<controller:\w+>/<action:\w+>.html'=>'<controller>/<action>',
+    ]
+],
+```
