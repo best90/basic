@@ -194,3 +194,17 @@ Yii::setAlias('@baidu', 'http://www.baidu.com/');
 echo Url::to('@baidu');
 
 ```
+
+#### 表单组件使用
+```
+文本框:textInput();
+密码框:passwordInput();
+单选框:radio(),radioList();
+复选框:checkbox(),checkboxList();
+下拉框:dropDownList();
+隐藏域:hiddenInput();
+文本域:textarea(['rows'=>3]);
+文件上传:fileInput();
+提交按钮:submitButton();
+重置按钮:resetButtun(); 
+```
