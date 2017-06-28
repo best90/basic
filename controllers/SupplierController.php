@@ -85,10 +85,17 @@ class SupplierController extends Controller
             $info = new SupplierForm();
             $info->load(Yii::$app->request->post());
             if ($info->validate()){
-             //   print_r(Yii::$app->request->bodyParams);
-                echo  'OK';
+                if ($id == Yii::$app->request->post()['Supplier']['supplier_id']){
+                    $model = new Supplier();
+                    if(!$model->updateSupplier($id, Yii::$app->request->post()['Supplier'])){
+                        echo '编辑失败，请重试！';
+                    }
+                    return $this->redirect(Yii::$app->request->getReferrer());
+                }else{
+                    print_r('请求参数错误！');
+                }
             }else{
-                print_r($info->getErrors());
+                print_r($info->errors);
             }
         }else{
             return $this->render('update', [

@@ -24,9 +24,9 @@ class SupplierForm extends Model
     public function rules()
     {
         return [
-            [['company_name', 'main_services'], 'required'],
-            ['reg_capital', 'integer'],
-            ['area_name','string']
+            //[['company_name', 'main_services'],'required'],
+            [['company_name', 'main_services','area_name'], 'string'],
+            ['reg_capital', 'integer']
         ];
     }
 }
