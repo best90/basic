@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0ae91dd49c8a7d0b85d596e662463df",
+    "content-hash": "8dc5ce537600f1e6643e069db2c757ee",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -313,6 +313,47 @@
                 "html"
             ],
             "time": "2017-06-03T02:28:16+00:00"
+        },
+        {
+            "name": "shiyang/yii2-umeditor",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shi-yang/yii2-umeditor.git",
+                "reference": "755c8139ff7a8fa04ba83bb03d7bfbb378509ea9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/shi-yang/yii2-umeditor/755c8139ff7a8fa04ba83bb03d7bfbb378509ea9.zip",
+                "reference": "755c8139ff7a8fa04ba83bb03d7bfbb378509ea9",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "shiyang\\umeditor\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shiyang",
+                    "email": "dr@shiyang.me"
+                }
+            ],
+            "description": "UMeditor is a simple version ueditor.",
+            "keywords": [
+                "extension",
+                "umeditor",
+                "yii2"
+            ],
+            "time": "2016-02-01T10:47:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
