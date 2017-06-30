@@ -45,14 +45,15 @@ class SupplierController extends Controller
     public function actions()
     {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+            'upload' => [
+                'class' => 'kucha\ueditor\UEditorAction',
+            ]
         ];
+    }
+
+    public function actionEditor()
+    {
+        return $this->render('editor');
     }
 
     /**
