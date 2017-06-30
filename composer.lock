@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8dc5ce537600f1e6643e069db2c757ee",
+    "content-hash": "a0bbd4771b3416f192486181c91da73b",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -315,26 +315,23 @@
             "time": "2017-06-03T02:28:16+00:00"
         },
         {
-            "name": "shiyang/yii2-umeditor",
-            "version": "v1.2",
+            "name": "kucha/ueditor",
+            "version": "1.21",
             "source": {
                 "type": "git",
-                "url": "https://github.com/shi-yang/yii2-umeditor.git",
-                "reference": "755c8139ff7a8fa04ba83bb03d7bfbb378509ea9"
+                "url": "https://github.com/BigKuCha/yii2-ueditor-widget.git",
+                "reference": "59e4ab2533bec1b182ce38241a1567e78d57a509"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/shi-yang/yii2-umeditor/755c8139ff7a8fa04ba83bb03d7bfbb378509ea9.zip",
-                "reference": "755c8139ff7a8fa04ba83bb03d7bfbb378509ea9",
+                "url": "https://files.phpcomposer.com/files/BigKuCha/yii2-ueditor-widget/59e4ab2533bec1b182ce38241a1567e78d57a509.zip",
+                "reference": "59e4ab2533bec1b182ce38241a1567e78d57a509",
                 "shasum": ""
             },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
+            "type": "library",
             "autoload": {
                 "psr-4": {
-                    "shiyang\\umeditor\\": ""
+                    "kucha\\ueditor\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -343,17 +340,12 @@
             ],
             "authors": [
                 {
-                    "name": "Shiyang",
-                    "email": "dr@shiyang.me"
+                    "name": "BigKuCha",
+                    "email": "nevermore1989@vip.qq.com"
                 }
             ],
-            "description": "UMeditor is a simple version ueditor.",
-            "keywords": [
-                "extension",
-                "umeditor",
-                "yii2"
-            ],
-            "time": "2016-02-01T10:47:37+00:00"
+            "description": "desc",
+            "time": "2017-01-15T06:29:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
