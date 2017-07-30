@@ -6,9 +6,10 @@
  * Time: 11:32
  */
 
-namespace app\models;
+namespace app\models\search;
 
 
+use app\models\Supplier;
 use yii\data\ActiveDataProvider;
 
 class SupplierSearch extends Supplier
