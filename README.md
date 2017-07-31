@@ -96,6 +96,12 @@ Yii::$app->db->createCommand()->batchInsert(UserModel::tableName(), ['user_id','
 ])->execute();
 ```
 
+#### 数据库关联查询
+```
+ActiveRecord::hasOne(); //返回对应关系的单条记录
+ActiveRecord::hasMany(); //返回对应关系的多条记录
+```
+
 #### 查看执行SQL
 ```
 //UserModel 
