@@ -29,8 +29,8 @@ class Keyword extends ActiveRecord
     public function rules()
     {
         return [
-            [['keyword_length', 'is_valid'], 'integer'],
-            [['create_time'], 'safe'],
+            [['keyword', 'url'], 'required','message'=>'{attribute}不能为为空'],
+            [['keyword_length', 'is_valid','create_time'], 'safe'],
             [['keyword', 'url'], 'string', 'max' => 255],
         ];
     }
@@ -42,11 +42,11 @@ class Keyword extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'keyword' => 'Keyword',
-            'keyword_length' => 'Keyword Length',
-            'url' => 'Url',
-            'is_valid' => 'Is Valid',
-            'create_time' => 'Create Time',
+            'keyword' => '关键词',
+            'keyword_length' => '关键词长度',
+            'url' => '链接',
+            'is_valid' => '生效',
+            'create_time' => '创建时间',
         ];
     }
 }
