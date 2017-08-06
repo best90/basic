@@ -1,8 +1,7 @@
 <?php
 
-namespace app\models\search;
+namespace app\services;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Keyword;
@@ -10,7 +9,7 @@ use app\models\Keyword;
 /**
  * KeywordSearch represents the model behind the search form about `app\models\Keyword`.
  */
-class KeywordSearch extends Keyword
+class KeywordService extends Keyword
 {
     /**
      * @inheritdoc
