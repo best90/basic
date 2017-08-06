@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Keyword;
-use app\models\search\KeywordSearch;
+use app\services\KeywordService;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,7 @@ class KeywordController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new KeywordSearch();
+        $searchModel = new KeywordService();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
