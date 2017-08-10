@@ -43,7 +43,7 @@ class KeywordController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-    
+
     /**
      * Creates a new Keyword model.
      * If creation is successful, the browser will be redirected to the 'view' page.

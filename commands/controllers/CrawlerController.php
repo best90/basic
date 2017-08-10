@@ -10,7 +10,7 @@ namespace app\commands\controllers;
 
 
 use app\commands\crawlers\common\Filter;
-use app\common\util\Snoopy;
+use app\commands\crawlers\common\Snoopy;
 use yii\console\Controller;
 
 class CrawlerController extends Controller
@@ -66,7 +66,7 @@ class CrawlerController extends Controller
      */
     protected function getNextCrawlInfo($html, $configName = '')
     {
-        require_once('./common/util/phpQuery/phpQuery.php');
+        require_once('./commands/crawlers/common/phpQuery/phpQuery.php');
 
         $config = $this->crawlConfig[$configName];
         $dom = \phpQuery::newDocumentHTML($html);
@@ -99,7 +99,7 @@ class CrawlerController extends Controller
 
     protected function getArticleInfo($html,$configName = 'detailPage')
     {
-        require_once('./common/util/phpQuery/phpQuery.php');
+        require_once('./commands/crawlers/common/phpQuery/phpQuery.php');
 
         $config = $this->crawlConfig[$configName];
         $query = \phpQuery::newDocumentHTML($html);
