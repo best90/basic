@@ -2,25 +2,25 @@
 
 namespace app\commands\crawlers\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "b2b_news.zhulong_detail_page".
+ * This is the model class for table "crawl_site_detail_page".
  *
- * @property string $pid
+ * @property string $id
  * @property string $page_url
  * @property int $is_crawled 是否已抓取
  * @property string $crawled_time 抓取时间
  * @property string $remark
  */
-class ZhulongDetailPage extends \yii\db\ActiveRecord
+class CrawlSiteDetailPage extends ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'b2b_news.zhulong_detail_page';
+        return 'crawl_site_detail_page';
     }
 
     /**
@@ -42,7 +42,7 @@ class ZhulongDetailPage extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pid' => 'Pid',
+            'id' => 'Id',
             'page_url' => 'Page Url',
             'is_crawled' => 'Is Crawled',
             'crawled_time' => 'Crawled Time',

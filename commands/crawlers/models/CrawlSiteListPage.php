@@ -5,23 +5,23 @@ namespace app\commands\crawlers\models;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "b2b_news.zhulong_group_list".
+ * This is the model class for table "crawl_site_list_page".
  *
- * @property int $gid
- * @property string $group_url
- * @property string $group_page_num 总页码
+ * @property int $id
+ * @property string $list_url
+ * @property string $list_page_num 总页码
  * @property string $crawl_page_num 当前抓取页码
  * @property int $is_all_crawled 是否全部列表抓取完成
  * @property string $remark
  */
-class ZhulongGroupList extends ActiveRecord
+class CrawlSiteListPage extends ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'b2b_news.zhulong_group_list';
+        return 'crawl_site_list_page';
     }
 
     /**
@@ -30,10 +30,10 @@ class ZhulongGroupList extends ActiveRecord
     public function rules()
     {
         return [
-            [['group_page_num'], 'integer'],
-            [['group_url', 'remark'], 'string', 'max' => 255],
+            [['list_page_num'], 'integer'],
+            [['list_url', 'remark'], 'string', 'max' => 255],
             [['crawl_page_num','is_all_crawled'],'safe'],
-            [['group_url'], 'unique'],
+            [['list_url'], 'unique'],
         ];
     }
 
@@ -43,9 +43,9 @@ class ZhulongGroupList extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'gid' => 'Gid',
-            'group_url' => 'Group Url',
-            'group_page_num' => 'Group Page Num',
+            'id' => 'Id',
+            'list_url' => 'List Url',
+            'list_page_num' => 'List Page Num',
             'crawl_page_num' => 'Crawl Page Num',
             'is_all_crawled' => 'Is All Crawled',
             'remark' => 'Remark',

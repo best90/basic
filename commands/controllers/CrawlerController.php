@@ -8,7 +8,6 @@
 
 namespace app\commands\controllers;
 
-
 use app\commands\crawlers\common\Filter;
 use app\commands\crawlers\common\Snoopy;
 use yii\console\Controller;
