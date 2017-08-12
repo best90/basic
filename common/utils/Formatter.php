@@ -1,6 +1,6 @@
 <?php
 
-namespace app\common\util;
+namespace app\common\utils;
 
 /**
  * 用户各种格式化转换

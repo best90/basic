@@ -3,7 +3,7 @@
  * 树型类
  * @author
  */
-namespace app\common\util;
+namespace app\common\utils;
 
 class Tree {
 
