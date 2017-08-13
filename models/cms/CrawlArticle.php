@@ -20,7 +20,7 @@ class CrawlArticle extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'keyword';
+        return 'crawl_article';
     }
 
     /**
