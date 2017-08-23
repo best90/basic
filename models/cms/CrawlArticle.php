@@ -29,7 +29,6 @@ class CrawlArticle extends ActiveRecord
     public function rules()
     {
         return [
-            [['keyword', 'url'], 'required','message'=>'{attribute}不能为为空'],
             [['keyword_length', 'is_valid','create_time'], 'safe'],
             [['keyword', 'url'], 'string', 'max' => 255],
         ];

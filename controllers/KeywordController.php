@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Keyword;
+use app\models\cms\Keyword;
 use app\services\KeywordService;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
