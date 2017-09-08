@@ -2,7 +2,6 @@
 
 namespace app\controllers\news;
 
-use app\common\util\UserActionCode;
 use app\controllers\BaseController;
 use Yii;
 use app\models\news\Category;
@@ -15,12 +14,6 @@ use yii\web\NotFoundHttpException;
 class CategoryController extends BaseController
 {
     public $layout = 'layout';
-
-    public function beforeAction($action)
-    {
-        $this->checkActionRights(UserActionCode::NEWS_ARTICLE_MANAGE_CODE);
-        return parent::beforeAction($action);
-    }
 
     /**
      * 资讯分类列表
