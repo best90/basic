@@ -2,6 +2,7 @@
 
 namespace app\services\category;
 
+use app\common\utils\DateTime;
 use app\common\utils\Tree;
 use app\models\cms\Article;
 use Yii;
@@ -99,7 +100,7 @@ SQL;
             foreach ($data as $key => $value){
                 if($value != '') $model->$key = $value;
             }
-            $model->create_time = date('Y-m-d H:i:s', time());
+            $model->create_time = DateTime::now();
             if ($model->save()) return true;
         }
 
@@ -149,7 +150,7 @@ SQL;
             foreach ($data as $key => $value){
                 $model->$key = $value;
             }
-            $model->last_modify_time = date('Y-m-d H:i:s', time());
+            $model->last_modify_time = DateTime::now();
             if($model->save()) return true;
         }
         return false;

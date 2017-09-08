@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Category */
+/* @var $model app\models\cms\Category */
 /* @var $form yii\widgets\ActiveForm */
 $categoryList = ['当前默认为一级分类'] + $categoryList;
 ?>
@@ -22,7 +22,7 @@ $categoryList = ['当前默认为一级分类'] + $categoryList;
     <?= $form->field($model, 'rank')->textInput() ?>
 
     <div class="form-group">
-        <a href="/news/category/index" class="btn btn-default">返回</a>
+        <a href="/cms/category/index" class="btn btn-default">返回</a>
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', '添加') : Yii::t('app', '修改'), ['class' => 'btn btn-primary pull-right']) ?>
     </div>
 

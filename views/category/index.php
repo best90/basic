@@ -99,7 +99,7 @@ $js = <<< JS
         var id = $(this).attr('data-id');
         krajeeDialog.confirm("您确定删除该分类?", function (result) {
             if (result) {
-                window.location.href = '/news/category/delete?id='+id;
+                window.location.href = '/cms/category/delete?id='+id;
             }
         });
     });

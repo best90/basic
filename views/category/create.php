@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Category */
+/* @var $model app\models\cms\Category */
 
 $this->title = '新建分类';
 $this->params['breadcrumbs'][] = ['label' => '资讯分类列表', 'url' => ['index']];

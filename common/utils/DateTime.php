@@ -11,8 +11,24 @@ namespace app\common\utils;
 
 class DateTime
 {
-    public static function now()
+    public function __construct()
     {
-        return date('Y-m-d H:i:s');
+        date_default_timezone_set('PRC');
+    }
+
+    /**
+     * @return string
+     */
+    public static function now($format='Y-m-d H:i:s')
+    {
+        return date($format);
+    }
+
+    /**
+     * @return string
+     */
+    public static function date($format = 'Y-m-d')
+    {
+        return date($format);
     }
 }
