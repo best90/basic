@@ -4,7 +4,7 @@ namespace app\models\cms;
 
 use yii\db\ActiveRecord;
 /**
- * This is the model class for table "keyword".
+ * This is the model class for table "crawl_article_detail".
  *
  * @property string $id
  * @property string $detail

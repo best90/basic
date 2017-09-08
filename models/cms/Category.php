@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models\news;
+namespace app\models\cms;
 
 use yii\db\ActiveRecord;
 

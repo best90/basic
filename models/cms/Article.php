@@ -2,9 +2,11 @@
 
 namespace app\models\cms;
 
+use app\models\User;
 use yii\db\ActiveRecord;
+
 /**
- * This is the model class for table "crawl_article".
+ * This is the model class for table "article".
  *
  * @property int $uid
  * @property string $title 标题
@@ -29,14 +31,15 @@ use yii\db\ActiveRecord;
  * @property string $last_modify_time 最后修改时间
  * @property string $last_modify_by 最后修改人
  */
-class CrawlArticle extends ActiveRecord
+class Article extends ActiveRecord
 {
+    public $content;
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'crawl_article';
+        return 'b2b_news.news';
     }
 
     /**
@@ -46,6 +49,7 @@ class CrawlArticle extends ActiveRecord
     {
         return [
             [['title','is_top','is_show','content'], 'required','message' => "{attribute}不能为空"],
+            [['is_top'],'checkNewsTop'],
             [['category_id'],'required','message' => "请选择资讯分类"],
             [['is_recommend','is_delete','crawl_site_id','accessory_url','top_time','create_by', 'create_time', 'last_modify_by','last_modify_time'], 'safe'],
             [['title', 'source', 'tag', 'img_src'], 'string', 'max' => 255,'message' => '{attribute}超过最大长度200'],
@@ -53,6 +57,26 @@ class CrawlArticle extends ActiveRecord
             [['digest'], 'string', 'max' => 1000],
             [['meta_description'], 'string', 'max' => 500],
         ];
+    }
+
+
+    /**
+     * 文章置顶校验
+     * @return bool
+     */
+    public function checkNewsTop(){
+        if ($this->is_top == 1) {
+            if (!empty($this->uid)){
+                if (self::find()->where(['is_top' => 1,'is_delete' => 0])->andFilterWhere(['<>','uid',$this->uid])->count() >= 3) {
+                    $this->addError('is_top','文章置顶不能超过3篇');
+                }
+            }else{
+                if (self::find()->where(['is_top' => 1,'is_delete' => 0])->count() >= 3) {
+                    $this->addError('is_top','文章置顶不能超过3篇');
+                }
+            }
+        }
+        return true;
     }
 
     /**
@@ -85,5 +109,21 @@ class CrawlArticle extends ActiveRecord
             'last_modify_by' => '修改人',
             'content' => '* 正文'
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(),['category_code' => 'category_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(),['id' => 'create_by']);
     }
 }

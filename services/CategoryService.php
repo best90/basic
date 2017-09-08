@@ -2,11 +2,11 @@
 
 namespace app\services\category;
 
-use app\common\util\Tree;
-use app\models\news\News;
+use app\common\utils\Tree;
+use app\models\cms\Article;
 use Yii;
 use app\services\BaseServices;
-use app\models\news\Category;
+use app\models\cms\Category;
 use yii\data\ArrayDataProvider;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
@@ -184,7 +184,7 @@ SQL;
      */
     public function hasNews($id)
     {
-        $model = News::findOne(['category_id' => $id,'is_delete' => 0]);
+        $model = Article::findOne(['category_id' => $id,'is_delete' => 0]);
         return $model !== null ? true : false;
     }
 
