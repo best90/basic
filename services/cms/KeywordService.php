@@ -1,6 +1,6 @@
 <?php
 
-namespace app\services;
+namespace app\services\cms;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\services\category;
+namespace app\services\cms;
 
 use app\common\utils\DateTime;
 use app\common\utils\Tree;

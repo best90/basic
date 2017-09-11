@@ -5,7 +5,7 @@ namespace app\controllers\news;
 use app\controllers\BaseController;
 use Yii;
 use app\models\cms\Category;
-use app\services\category\CategoryService;
+use app\services\cms\CategoryService;
 use yii\web\NotFoundHttpException;
 
 /**
