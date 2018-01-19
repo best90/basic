@@ -24,7 +24,7 @@ class Category extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'b2b_news.category';
+        return 'category';
     }
 
     /**

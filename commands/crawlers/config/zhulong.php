@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zhengjq
- * Date: 2017/8/8
- * Time: 15:04
- */
+
 
 $config = [
     'domain' => 'http://bbs.zhulong.com',

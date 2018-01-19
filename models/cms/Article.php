@@ -39,7 +39,7 @@ class Article extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'b2b_news.news';
+        return 'news';
     }
 
     /**

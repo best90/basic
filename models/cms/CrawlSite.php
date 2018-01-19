@@ -22,7 +22,7 @@ class CrawlSite extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'b2b_news.crawl_site';
+        return 'crawl_site';
     }
 
     /**

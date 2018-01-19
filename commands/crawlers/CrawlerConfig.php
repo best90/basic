@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zhengjq
- * Date: 2017/8/8
- * Time: 15:13
- */
 
 namespace app\commands\crawlers;
 
