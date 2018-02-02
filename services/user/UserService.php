@@ -3,7 +3,6 @@
 namespace app\services\user;
 
 use app\models\user\UserAccount;
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\user\User;

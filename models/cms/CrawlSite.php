@@ -5,7 +5,7 @@ namespace app\models\cms;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "b2b_news.crawl_site".
+ * This is the model class for table "crawl_site".
  *
  * @property int $site_id
  * @property string $site_code

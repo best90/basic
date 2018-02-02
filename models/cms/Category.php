@@ -5,7 +5,7 @@ namespace app\models\cms;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "b2b_news.category".
+ * This is the model class for table "category".
  *
  * @property int $category_code 分类code
  * @property string $category_name 分类名称

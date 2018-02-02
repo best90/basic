@@ -2,10 +2,10 @@
 
 namespace app\models\user;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "b2b_user.uuc_user".
+ * This is the model class for table "user".
  *
  * @property string $user_id 用户UID
  * @property string $nick 昵称
@@ -37,7 +37,7 @@ use Yii;
  * @property string $last_cert_invite_time 最后邀请认证时间
  * @property string $remark 备注
  */
-class User extends \yii\db\ActiveRecord
+class User extends ActiveRecord
 {
     /**
      * @inheritdoc

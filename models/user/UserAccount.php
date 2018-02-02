@@ -5,7 +5,7 @@ namespace app\models\user;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "b2b_user.uuc_user_account".
+ * This is the model class for table "user_account".
  *
  * @property string $account_id 帐号ID
  * @property string $user_id 用户UID

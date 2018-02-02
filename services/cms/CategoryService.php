@@ -6,7 +6,6 @@ use app\common\utils\DateTime;
 use app\common\utils\Tree;
 use app\models\cms\Article;
 use Yii;
-use app\services\BaseServices;
 use app\models\cms\Category;
 use yii\data\ArrayDataProvider;
 use yii\helpers\ArrayHelper;
@@ -16,7 +15,7 @@ use yii\web\NotFoundHttpException;
 /**
  * CategoryService represents the model behind the search form of `app\models\Category`.
  */
-class CategoryService extends BaseServices
+class CategoryService
 {
 
     /**
