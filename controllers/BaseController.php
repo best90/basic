@@ -9,7 +9,6 @@ use yii\web\UnauthorizedHttpException;
 
 class BaseController extends Controller
 {
-    public $layout = false;
     public $enableCsrfValidation = false;
 
     public function behaviors()

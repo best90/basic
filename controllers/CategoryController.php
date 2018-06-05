@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers\news;
+namespace app\controllers;
 
 use app\controllers\BaseController;
 use Yii;
@@ -13,8 +13,6 @@ use yii\web\NotFoundHttpException;
  */
 class CategoryController extends BaseController
 {
-    public $layout = 'layout';
-
     /**
      * 资讯分类列表
      * @return string

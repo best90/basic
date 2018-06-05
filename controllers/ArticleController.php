@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers\news;
+namespace app\controllers;
 
 use app\common\utils\DateTime;
 use app\controllers\BaseController;
@@ -14,7 +14,6 @@ use yii\web\NotFoundHttpException;
 
 class ArticleController extends BaseController
 {
-    public $layout = 'layout';
 
     /**
      * @return array

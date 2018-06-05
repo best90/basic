@@ -114,12 +114,4 @@ class User extends ActiveRecord
     {
         return $this->hasOne(UserAccount::className(),['user_id' => 'user_id']);
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBusinessCardRecord()
-    {
-        return $this->hasOne(BusinessCardRecord::className(),['user_id' => 'user_id']);
-    }
 }

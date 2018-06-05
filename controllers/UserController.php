@@ -13,7 +13,6 @@ use yii\filters\VerbFilter;
  */
 class UserController extends BaseController
 {
-    public $layout = 'layout';
     /**
      * @inheritdoc
      */
@@ -27,12 +26,6 @@ class UserController extends BaseController
                 ],
             ],
         ];
-    }
-
-    public function beforeAction($action)
-    {
-        $this->checkActionRights(UserActionCode::ACCOUNT_MANAGER_CODE);
-        return parent::beforeAction($action);
     }
 
     /**

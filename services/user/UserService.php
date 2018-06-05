@@ -42,8 +42,6 @@ class UserService extends User
     public function search($params)
     {
         $query = User::find();
-        $query->joinWith(['userAccount account']);
-        $query->joinWith(['businessCardRecord card']);
 
         // add conditions that should always apply here
 
@@ -60,17 +58,7 @@ class UserService extends User
                 'status',
                 'user_level',
                 'register_time',
-                'register_source',
-                'mobile' => [
-                    'asc' => ['account.mobile' => SORT_ASC],
-                    'desc' => ['account.mobile' => SORT_DESC],
-                    'label' => 'mobile'
-                ],
-                'name' => [
-                    'asc' => ['card.name' => SORT_ASC],
-                    'desc' => ['card.name' => SORT_DESC],
-                    'label' => 'name'
-                ],
+                'register_source'
             ]
         ]);
 
@@ -83,10 +71,9 @@ class UserService extends User
         }
 
         if (isset($params['keyword'])) {
-            $query->filterWhere(['like', 'card.user_id', $params['keyword']])
-                ->orFilterWhere(['like', 'account.mobile', $params['keyword']])
-                ->orFilterWhere(['like', 'card.name', $params['keyword']])
-                ->orFilterWhere(['like', 'card.company_name', $params['keyword']]);
+            $query->filterWhere(['like', 'user_id', $params['keyword']])
+                ->orFilterWhere(['like', 'mobile', $params['keyword']])
+                ->orFilterWhere(['like', 'name', $params['keyword']]);
         }
 
         return $dataProvider;
